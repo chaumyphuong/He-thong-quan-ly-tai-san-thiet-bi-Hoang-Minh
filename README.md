@@ -3,7 +3,7 @@
 HỆ THỐNG QUẢN LÝ THIẾT BỊ TÀI SẢN
 
 ## 📌 Nội dung tài liệu
-- [Tổng quan dự án](docs/01-Project Overview.md)
+- [Tổng quan dự án](docs/01-Project-Overview.md)
 - [Phân tích yêu cầu nghiệp vụ](docs/02-Requirements-Analysis.md)
 - [Mô hình hệ thống – DFD](docs/03-DFD.md)
 - [Thiết kế cơ sở dữ liệu (ERD + Scripts)](docs/04-Database-Design.md)
