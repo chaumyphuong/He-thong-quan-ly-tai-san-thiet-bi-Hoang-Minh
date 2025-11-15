@@ -2,7 +2,7 @@
 
 HỆ THỐNG QUẢN LÝ THIẾT BỊ TÀI SẢN
 
-## 📌 Nội dung tài liệu
+## Nội dung tài liệu
 - [Tổng quan dự án](docs/01-Project-Overview.md)
 - [Phân tích yêu cầu nghiệp vụ](docs/02-Requirements-Analysis.md)
 - [Mô hình hệ thống – DFD](docs/03-DFD.md)
@@ -11,7 +11,7 @@ HỆ THỐNG QUẢN LÝ THIẾT BỊ TÀI SẢN
 
 ---
 
-## 🛢 Database Scripts
+## Database Scripts
 | File | Chức năng |
 |------|-----------|
 | `AMS_Create_Tables.sql` | Tạo bảng + ràng buộc |
@@ -20,15 +20,10 @@ HỆ THỐNG QUẢN LÝ THIẾT BỊ TÀI SẢN
 
 ---
 
-## 📌 Công cụ sử dụng
+## Công cụ sử dụng
 | Công cụ | Mục đích |
 |--------|---------|
 | SQL Server | Thiết kế DB & chạy truy vấn |
 | Draw.io / Visio | Vẽ DFD & sơ đồ hệ thống |
 | Word / Markdown | Viết tài liệu |
 | (Optional) Figma | UI Prototype |
-
----
-
-## 👩‍🎓 Tác giả
-- **Châu Mỹ Phương** – Sinh viên ngành HT
