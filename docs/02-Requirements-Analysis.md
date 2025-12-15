@@ -1,31 +1,43 @@
-# Thu thập yêu cầu
-Trong những tuần làm việc đầu tiên, chúng tôi đã liên hệ và thu thập yêu cầu từ khách hàng của chúng tôi, Bùi Ngọc Lê, những câu hỏi của chúng tôi đã đặt ra cho khách hàng để thu thập yêu cầu gồm:
-1.	Quy trình bàn giao các thiết bị cho các đội dự án thực hiện thi công như thế nào?
-2.	Quy trình nhận và hoàn trả thiết bị của hệ thống diễn biến thế nào?
-3.	Cách đánh giá tình trạng thiết bị như thế nào?
-4.	Nhiệm vụ và chức năng của mỗi phòng ban bao gồm cái gì? (Ví dụ: Phòng ban công nghệ thông tin thì làm cái gì?)
-5.	Nếu tài sản thiết bị hết giá trị khấu hao thì sẽ có kết quả như thế nào? (Bị thay thế, vẫn tiếp tục sử dụng...?)
+# Requirements Gathering
+During the first few weeks of work, we contacted and gathered requirements from our client, Bui Ngoc Le. The questions we asked the client to gather requirements included:
+1. What is the process for handing over equipment to project teams for construction?
 
-## Phân tích yêu cầu
-1	Quy trình bàn giao các thiết bị cho các đội dự án thực hiện thi công như thế nào?	
--	Khi thực hiện dự án thì nhân viên sẽ tự liên hệ với phòng HCNS để nhận tài sản mình cần.
--	Khi giao thì phòng HCNS sẽ ghi nhận vào hệ thống là thiết bị đã được giao cho nhân viên nào.
--	Khi nhân viên nhận thiết bị tài sản thì sẽ xác nhận vào hệ thống là đã nhận và việc giao tài sản hoàn thành.
+2. What is the process for receiving and returning system equipment?
 
-2	Quy trình nhận và hoàn trả thiết bị của hệ thống diễn biến thế nào?
--	B1: Nhân viên muốn giao lại thiết bị tài sản thì sẽ vào hệ thống đăng ký bàn giao.
--	B2: Nhân viên phòng HCNS sẽ kiểm tra lại tài sản và cập nhập trạng thái thiết bị và ghi nhận đã giao về phòng HCNS quản lý.
--	B3: Sau khi nghi nhận thì thiết bị tài sản đã được giao về phòng HCNS.
+3. How is equipment condition assessed?
 
-3	Cách đánh giá tình trạng thiết bị như thế nào?
--	Việc đánh giá dựa vào ý kiến của người nhận tài sản.
--	Ví dụ: Nếu người nhận thấy thiết bị không sử dụng được thì cập nhật là "Không sử dụng được".
+4. What are the tasks and functions of each department? (For example, what does the IT department do?)
 
-4	Nhiệm vụ và chức năng của mỗi phòng ban bao gồm cái gì?	
--	5 phòng ban là câu cấu tổ chức của công ty.
--	Còn việc được thao tác thế nào trong hệ thống thì mô tả đã có.
+5. What happens if equipment reaches the end of its depreciation period? (Is it replaced, is it still in use...?)
 
-5	Nếu tài sản thiết bị hết giá trị khấu hao thì sẽ có kết quả như thế nào? (Bị thay thế, vẫn tiếp tục sử dụng...?)	
--	Thiết bị tài sản lúc mới mua sẽ được định thời gian khấu hao theo quy định chung.
--	Và nếu tài sản đã được sử dụng quá thời gian trên thì được gọi là hết khấu hao. Tuy nhiên thiết bị tài sản hết khấu hao thì vẫn sử dụng bình thường nếu sử dụng được.
--	Tình trạng hết khấu hao tài sản chỉ có ý nghĩa về việc tính toán giá trị tài sản cho chuyên môn kế toán.
+## Requirements Analysis
+1. What is the process for handing over equipment to project teams for construction?
+
+- When executing the project, employees will contact the HR department to receive the assets they need. - When the equipment is handed over, the HR department will record in the system which employee received it.
+
+- When the employee receives the equipment, they will confirm receipt in the system, and the handover is complete.
+
+2. How does the equipment receiving and returning process work?
+
+- Step 1: The employee who wants to return the equipment registers the handover in the system.
+
+- Step 2: The HR department staff will check the asset, update the equipment status, and record it as handed over to the HR department for management.
+
+- Step 3: After confirmation, the equipment has been returned to the HR department.
+
+3. How is the equipment's condition assessed?
+
+- The assessment is based on the recipient's opinion.
+
+- For example: If the recipient finds the equipment unusable, the status will be updated to "Unusable".
+
+4. What are the tasks and functions of each department? - The five departments constitute the company's organizational structure.
+
+- The system's operational procedures are already described.
+
+5. What happens if an asset or equipment reaches the end of its depreciation period? (Is it replaced, or does it continue to be used...?)
+- When purchased, the depreciation period for an asset is determined according to general regulations.
+
+- If the asset has been used beyond that period, it is considered to have reached the end of its depreciation period. However, an asset that has reached the end of its depreciation period can still be used normally if it is still usable.
+
+- The state of asset depreciation only has significance for calculating the asset's value for accounting purposes.
