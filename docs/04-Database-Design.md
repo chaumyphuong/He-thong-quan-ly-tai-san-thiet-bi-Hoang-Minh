@@ -1,99 +1,148 @@
-## 1.	Lược đồ mô hình thực thể (Entity Relation Diagram – ERD):
-Lược đồ bao gồm 7 thực thể:
--	Tài sản.
--	Nhân viên.
--	Phòng ban.
--	Dự án.
--	Tài khản.
--	Biên bản giao.
--	Biên bản trả.
-Các thực thể liên kết với nhau:
-- Thiết bị tài sản có thành phần thiết bị con của thiết bị khác, những thành phần thiết bị con đó là linh kiện, thiết bị con. Do cùng là thiết bị tài sản nên đều có mã tài sản, quan hệ chính bảng đó, và mối quan hệ là N - N.
-- Nhân viên và Phòng ban là mối quan hệ 1 – N.
-- Nhân viên và Dự án là mối quan hệ N – N: một nhân viên có thể tham gia nhiều dự án và một dự án có nhiều nhân viên tham gia, mối quan hệ có thêm thuộc tính vai trò – vai trò của mỗi nhân viên trong dự án đó.
-- Nhân viên và Tài khoản là mối quan hệ 1 – 1: một nhân viên có một tài khoản.
-- Nhân viên và Tài sản là mối quan hệ 1 – N, mối quan hệ sinh ra bảng biên bản giao và bảng biên bảng trả.
+## 1. Entity Relationship Diagram (ERD)
 
-## 2.	Lược đồ sơ đồ dữ liệu 
-Lược đồ gồm 9 bảng dữ liệu:
-1.	Bảng tai_san.
-2.	Bảng thietbi_con.
-3.	Bảng nhan_vien.
-4.	Bảng tai_khoan.
-5.	Bảng phongban.
-6.	Bảng tham_gia.
-7.	Bảng du_an.
-8.	Bảng tai_khoan.
-9.	Bảng bienban_giao.
-10.	Bảng bienban_tra.
-- Dữ liệu TBTS được lấy dữ liệu từ bảng tai_san, bảng thietbi_con.
-- Dữ liệu giao TBTS được lấy dữ liệu từ bảng bienban_giao và bảng bienban_tra.
+The system consists of **7 main entities**:
 
-## 3.	Bảng dữ liệu:
-### 3.1. Bảng tài sản (tai_san):
-Tên thuộc tính	Kiểu dữ liệu	Độ dài	Null/Not null	Mô tả
-maTB	char	4	Not null	Mã thiết bị (khóa chính)
-tenTB	nvarchar	35	Not null	Tên thiết bị
-tgmua	date		Not null	Thời gian mua
-tgkhauhao	date		Not null	Thời gian khấu hao (tính theo năm)
-loai	nvarchar	25	Null	Loại thiết bị, tài sản
-Tinhtrang	nvarchar	70	Not null	Tình trạng tài sản
-chiphi	money		Not null	Chi phí mua tài sản
-mota	nvarchar	200	Null	Mô tả tài sản
-HDSD	nvarchar	300	Null	Hướng dẫn sử dụng
-maNV	char	4	Not null	Mã nhân viên (Khóa ngoại)
+- Asset
+- Employee
+- Department
+- Project
+- Account
+- Asset Handover Record
+- Asset Return Record
 
-### 3.2.	Bảng dự án (du_an):
-Tên thuộc tính	Kiểu dữ liệu	Độ dài	Null/Not null	Mô tả
-maDA	char	4	Not null	Mã dự án (khóa chính)
-tenDA	nvarchar	40	Not null	Tên dự án
-mota	nvarchar	200	Null	Mô tả dự án
-khachhang	nvarchar	40	Null	Khách hàng của dự án
-ngaybatdau	date		Not null	Ngày bắt đầu thực hiện
-ngayketthuc	date		Not null	Ngày kết thúc dự án
+### Entity Relationships
 
-### 3.3.	Bảng phòng ban (phong_ban):
-Tên thuộc tính	Kiểu dữ liệu	Độ dài	Null/Not null	Mô tả
-maPB	char	4	Not null	Mã phòng ban (khóa chính)
-tenphong	nvarchar	30	Not null	Tên phòng ban
+- **Asset – Sub Asset (Component)**
+  - An asset can consist of multiple sub-assets (components).
+  - Sub-assets are also considered assets and have their own asset codes.
+  - This is a **many-to-many (N–N)** self-referencing relationship.
 
-### 3.4.	Bảng nhân viên (nhan_vien):
-Tên thuộc tính	Kiểu dữ liệu	Độ dài	Null/Not null	Mô tả
-maNV	char	4	Not null	Mã nhân viên (khóa chính)
-ho	nvarchar	15	Not null	Họ của nhân viên
-tendem	nvarchar	30	Null	Tên đệm của nhân viên
-ten	nvarchar	15	Not null	Tên nhân viên
-diachi	nvarchar	100	Not null	Địa chỉ nơi ở
-chucvu	nvarchar	25	Not null	Chức vụ
-SDT	varchar	12	Not null	Số điện thoại nhân viên
-gioitinh	char	1	Not null	Giới tính nhân viên
-ngaysinh	date		Null	Ngày sinh của nhân viên
-luong	money		Not null	Lương của nhân viên
-maphong	char	4	Not null	Mã phòng ban (Khóa ngoại)
+- **Employee – Department**
+  - One department can have many employees.
+  - Each employee belongs to one department.
+  - Relationship type: **1–N**
 
-### 3.5.	Bảng tài khoản (tai_khoan):
-Tên thuộc tính	Kiểu dữ liệu	Độ dài	Null/Not null	Mô tả
-tenTK	varchar	20	Not null	Tên tài khoản
-matkhau	varchar	20	Not null	Mật khẩu tài khoản
-maNV	char	4	Not null	Mã nhân viên (Khóa ngoại)
+- **Employee – Project**
+  - An employee can participate in multiple projects.
+  - A project can have multiple employees.
+  - Relationship type: **N–N**
+  - The relationship includes an additional attribute: **role** of the employee in the project.
 
-### 3.6.	Bảng biên bản giao (bienban_giao):
-Tên thuộc tính	Kiểu dữ liệu	Độ dài	Null/Not null	Mô tả
-maNV	char	4	Not null	Mã nhân viên nhận (khóa chính)
-tggiao	date		Not null	Thời gian giao
-maNVgiao	char	4	Not null	Mã nhân viên giao (Khóa ngoại)
-maTB	char	4	Not null	Mã thiết bị giao (khóa ngoại)
+- **Employee – Account**
+  - Each employee has exactly one system account.
+  - Relationship type: **1–1**
 
-### 3.7.	Bảng biên bản trả (bienban_tra):
-Tên thuộc tính	Kiểu dữ liệu	Độ dài	Null/Not null	Mô tả
-maNV	char	4	Not null	Mã nhân viên trả (khóa chính)
-tgtra	date		Not null	Thời gian trả
-maNVnhan	char	4	Not null	Mã nhân viên nhận (khóa ngoại)
-tinhtrangtra	nvarchar	25	Not null	Tình trạng trả
-maTB	char	4	Not null	Mã thiết bị (khóa ngoại)
+- **Employee – Asset**
+  - Assets are handed over to employees and returned after project completion.
+  - This relationship is implemented through:
+    - Asset Handover Record
+    - Asset Return Record
+## 2. Database Schema Overview
 
-### 3.8.	Bảng tham gia (tham_gia):
-Tên thuộc tính	Kiểu dữ liệu	Độ dài	Null/Not null	Mô tả
-maDA	char	4	Not null	Mã dự án (khóa chính)
-maNV	char	4	Not null	Mã nhân viên (khóa chính)
-vaitro	nvarchar	25	Null	Vai trò nhân viên trong dự án
+The database consists of the following tables:
+
+1. asset
+2. asset_component
+3. employee
+4. account
+5. department
+6. project
+7. project_participation
+8. asset_handover
+9. asset_return
+
+### Data Sources
+- Asset data is retrieved from:
+  - `asset`
+  - `asset_component`
+- Asset handover and return data is retrieved from:
+  - `asset_handover`
+  - `asset_return`
+
+## 3. Data Table:
+### 3.1. Asset Table (tai_san):
+## 3. Database Tables
+
+### 3.1. Asset Table (tai_san)
+
+| Attribute Name     | Data Type   | Length | Null/Not Null | Description                  |
+|--------------------|-------------|--------|---------------|------------------------------|
+| maTB               | char        | 4      | Not null      | Asset ID (Primary Key)       |
+| tenTB              | nvarchar    | 35     | Not null      | Asset Name                   |
+| tgmua              | date        |        | Not null      | Purchase Date                |
+| tgkhauhao          | date        |        | Not null      | Depreciation Date            |
+| loai               | nvarchar    | 25     | Null          | Asset Type                   |
+| Tinhtrang          | nvarchar    | 70     | Not null      | Asset Status                 |
+| chiphi             | money       |        | Not null      | Purchase Cost                |
+| mota               | nvarchar    | 200    | Null          | Asset Description            |
+| HDSD               | nvarchar    | 300    | Null          | Usage Guide                  |
+| maNV               | char        | 4      | Not null      | Employee ID (Foreign Key)    |
+
+### 3.2. Project Table (du_an)
+
+| Attribute Name     | Data Type   | Length | Null/Not Null | Description                  |
+|--------------------|-------------|--------|---------------|------------------------------|
+| maDA               | char        | 4      | Not null      | Project ID (Primary Key)     |
+| tenDA              | nvarchar    | 40     | Not null      | Project Name                 |
+| mota               | nvarchar    | 200    | Null          | Project Description          |
+| khachhang          | nvarchar    | 40     | Null          | Client                       |
+| ngaybatdau         | date        |        | Not null      | Start Date                   |
+| ngayketthuc        | date        |        | Not null      | End Date                     |
+
+### 3.3. Department Table (phong_ban)
+
+| Attribute Name     | Data Type   | Length | Null/Not Null | Description                  |
+|--------------------|-------------|--------|---------------|------------------------------|
+| maPB               | char        | 4      | Not null      | Department ID (Primary Key)  |
+| tenphong           | nvarchar    | 30     | Not null      | Department Name              |
+
+### 3.4. Employee Table (nhan_vien)
+
+| Attribute Name     | Data Type   | Length | Null/Not Null | Description                     |
+|--------------------|-------------|--------|---------------|---------------------------------|
+| maNV               | char        | 4      | Not null      | Employee ID (Primary Key)       |
+| ho                 | nvarchar    | 15     | Not null      | Last Name                       |
+| tendem             | nvarchar    | 30     | Null          | Middle Name                     |
+| ten                | nvarchar    | 15     | Not null      | First Name                      |
+| diachi             | nvarchar    | 100    | Not null      | Address                         |
+| chucvu             | nvarchar    | 25     | Not null      | Position                        |
+| SDT                | varchar     | 12     | Not null      | Phone Number                    |
+| gioitinh           | char        | 1      | Not null      | Gender                          |
+| ngaysinh           | date        |        | Null          | Date of Birth                   |
+| luong              | money       |        | Not null      | Salary                          |
+| maphong            | char        | 4      | Not null      | Department ID (Foreign Key)     |
+
+### 3.5. Account Table (tai_khoan)
+
+| Attribute Name     | Data Type   | Length | Null/Not Null | Description                  |
+|--------------------|-------------|--------|---------------|------------------------------|
+| tenTK              | varchar     | 20     | Not null      | Username                     |
+| matkhau            | varchar     | 20     | Not null      | Password                     |
+| maNV               | char        | 4      | Not null      | Employee ID (Foreign Key)    |
+
+### 3.6. Handover Record Table (bienban_giao)
+
+| Attribute Name     | Data Type   | Length | Null/Not Null | Description                        |
+|--------------------|-------------|--------|---------------|------------------------------------|
+| maNV               | char        | 4      | Not null      | Receiving Employee ID              |
+| tggiao             | date        |        | Not null      | Handover Date                      |
+| maNVgiao           | char        | 4      | Not null      | Handing-over Employee ID (FK)      |
+| maTB               | char        | 4      | Not null      | Asset ID (Foreign Key)             |
+
+### 3.7. Return Record Table (bienban_tra)
+
+| Attribute Name     | Data Type   | Length | Null/Not Null | Description                        |
+|--------------------|-------------|--------|---------------|------------------------------------|
+| maNV               | char        | 4      | Not null      | Returning Employee ID              |
+| tgtra              | date        |        | Not null      | Return Date                        |
+| maNVnhan           | char        | 4      | Not null      | Receiving Employee ID (FK)         |
+| tinhtrangtra       | nvarchar    | 25     | Not null      | Return Status                      |
+| maTB               | char        | 4      | Not null      | Asset ID (Foreign Key)             |
+
+### 3.8. Project Participation Table (tham_gia)
+
+| Attribute Name     | Data Type   | Length | Null/Not Null | Description                        |
+|--------------------|-------------|--------|---------------|------------------------------------|
+| maDA               | char        | 4      | Not null      | Project ID (Composite Primary Key) |
+| maNV               | char        | 4      | Not null      | Employee ID (Composite Primary Key)|
+| vaitro             | nvarchar    | 25     | Null          | Role in Project                    |
